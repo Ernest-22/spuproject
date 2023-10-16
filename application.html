@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>Student Application Form</title>
+  <link rel="stylesheet" type="text/css" href="Appstyle.css" />
+  <style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+    }
+    .parallax {
+    background-image: url('image1.jpg');
+    height: 200%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    animation: slide 90s infinite;
+}
+
+    @keyframes slide {
+        0% {
+            background-position: 0% 0%;
+        }
+        50% {
+            background-position: 100% 0%;
+        }
+        100% {
+            background-position: 0% 0%;
+        }
+      }
+      .blur-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #283048, #859398); /* Gradient background */
+    z-index: -1;
+}
+
+form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    width: 400px;
+    padding: 30px; /* Increased padding for a more spacious feel */
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow for depth */
+}
+
+/* Additional hover effect for form */
+form:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transform: translate(-50%, -50%) scale(1.02);
+}
+
+
+    .questions li {
+        display: none;
+    }
+    .questions li.current {
+        display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parallax"></div>
+
+  <header class="codrops-header">
+    <h1>STUDENT APPLICATION <span>SUPPLY YOUR INFORMATION BELOW. MAKE SURE ALL DETAILS ARE CORRECT</span></h1>  
+  </header>
+  <section>
+    <div class="blur-wrapper"></div>
+    <form id="theForm" class="simform" method="post" action="proccess_form.php">
+      <div class="simform-inner">
+        <ol class="questions">
+          <li class="current">
+            <span><label for="StudentID">Student ID:</label></span>
+            <input id="StudentID" name="StudentID" type="number" placeholder="Your student ID" required />
+          </li>
+          <li>
+            <span><label for="Name">Full Names:</label></span>
+            <input id="Name" name="Name" type="text" placeholder="Eg singo ndivhadzo ernest" required />
+          </li>
+          <li>
+            <span><label for="ContactInformation">Contact Information:</label></span>
+            <input id="ContactInformation" name="ContactInformation" type="text" placeholder="Your cell number" required />
+          </li>
+          <li>
+            <span><label for="Gender">Gender:</label></span>
+            <select id="gender" name="gender" required>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+        </li>
+         
+          <li>
+            <span><label for="Program">Program of Study:</label></span>
+            <input id="Program" name="Program" type="text" placeholder="Your program of study" required />
+          </li>
+          <li>
+            <span><label for="YearOfStudy">Year of Study:</label></span>
+            <input id="YearOfStudy" name="YearOfStudy" type="number" placeholder="Your year of study" required />
+          </li>
+          <li>
+            <span><label for="PreferredResidence">Preferred Residence:</label></span>
+            <select id="PreferredResidence" name="PreferredResidence" required>
+              <option value="Hannetje">Hannetje</option>
+              <option value="Mnandi">Mnandi</option>
+              <option value="Mhudi">Mhudi</option>
+              <option value="Moroka">Moroka</option>
+              <option value="Rathaga">Rathaga</option>
+            </select>
+          </li>
+         
+        </ol><!-- /questions -->
+        <button class="next" onclick="nextQuestion()">Next</button>
+        <button class="previous" onclick="previousQuestion()">Previous</button>
+        <button class="submit" style="display: none;" onclick="submitForm()">Submit</button>
+        <div class="controls">
+          <div class="progress"></div>
+          <span class="number">
+            <span class="number-current">1</span>
+            <span class="number-total">8</span>
+          </span>
+          <span class="error-message"></span>
+        </div><!-- / controls -->
+      </div><!-- /simform-inner -->
+    
+
+      <span class="final-message"></span>
+    </form><!-- /simform -->      
+  </section>
+
+  <script>
+    let currentQuestion = 0;
+    const questions = document.querySelectorAll('.questions li');
+    let questionCount = questions.length;
+    const progressBar = document.querySelector('.progress');
+    const nextBtn = document.querySelector('.next');
+    const prevBtn = document.querySelector('.previous');
+    const submitBtn = document.querySelector('.submit');
+
+    function showQuestion(questionNumber) {
+      questions.forEach((question, index) => {
+        if (index === questionNumber) {
+          question.classList.add('current');
+        } else {
+          question.classList.remove('current');
+        }
+      });
+    }
+
+    function nextQuestion() {
+    if (currentQuestion < questionCount - 1) {
+        currentQuestion++;
+        updateProgressBar();
+        showQuestion(currentQuestion);
+        event.preventDefault();  // Prevent default behavior (form submission)
+    }
+    updateControlsVisibility();
+}
+
+
+function previousQuestion() {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        updateProgressBar();
+        showQuestion(currentQuestion);
+    }
+    updateControlsVisibility();
+}
+
+
+
+    function updateProgressBar() {
+      const progressPercentage = ((currentQuestion + 1) / questionCount) * 100;
+      progressBar.style.width = progressPercentage + '%';
+    }
+
+    function updateControlsVisibility() {
+      if (currentQuestion === 0) {
+        prevBtn.style.display = 'none';
+      } else {
+        prevBtn.style.display = 'block';
+      }
+
+      if (currentQuestion === questionCount - 1) {
+    nextBtn.style.display = 'none';
+    submitBtn.style.display = 'block';
+  } else {
+    nextBtn.style.display = 'block';
+    submitBtn.style.display = 'none';
+  }
+
+      // Update the current question number
+      const numberCurrent = document.querySelector('.number-current');
+  numberCurrent.textContent = currentQuestion + 1;
+}
+
+function submitForm() {
+    // Display a final message
+    const finalMessage = document.querySelector('.final-message');
+    finalMessage.textContent = 'Thank you for submitting the form!';
+    finalMessage.style.display = 'block';
+
+    // Hide the form (optional)
+    const form = document.getElementById('theForm');
+    form.style.display = 'none';
+}
+
+
+  </script>
+  
+  
+</body>
+</html>

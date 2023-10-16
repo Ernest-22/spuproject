@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contacts</title>
+
+    <link rel="stylesheet" type="text/css" href="css for contacts.css">
+</head>
+<body bgcolor="grey">
+    <img src="SPU.jpg" height="500" width="1470"/>
+    <h1 align="center">
+        Contact Us
+    </h1>
+
+    <nav class="navbar">
+        <ul class="navbar-list">
+            <li><a href="index.html">
+                    Home
+                </a></li>
+
+            <li><a href="About.html">
+                    About
+                </a></li>
+
+            <li><a href="Services.html">
+                    Services
+                </a></li>
+        </ul>
+    </nav>
+
+    <section id="contact-information">
+        <h2>Contact Information</h2>
+        <p>For any queries or assistance regarding your application process, please contact us:</p>
+        <address>
+            Email: <b><a href="mailto:202238166@spu.ac.za">202238166@spu.ac.za</a><br></b>
+            Phone: <b><a href="tel:0698665809">0698665809</a><br></b>
+            Address(Central Campus): <b>24-26 Scanlan St, New Park, Kimberley, 8301</b><br>
+            Address(South Campus): <b>150 Reservoir Rd, New Park, Kimberley, 8301</b><br>
+            Address(North Campus): <b>10 Jan Smuts Blvd, Civic Centre, Kimberley, 8301</b>
+        </address>
+    </section>
+
+    <section id="contact-form">
+        <fieldset>
+            <legend>
+                <h2>
+                    Contact Form
+                </h2>
+            </legend>
+
+            <form action="submit_contact.php" method="POST">
+                <p><label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required><br></p>
+
+                <p><label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br></p>
+
+                <p><label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="2" required></textarea><br></p>
+        </fieldset>
+
+        <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; SPU: All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Your JavaScript code
+    </script>
+
+</body>
+
+</html>

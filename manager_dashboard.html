@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Residence Application</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #ff5733; /* Reddish-Orange color */
+            color: white;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            background-color: #ff9f43; /* Light Orange color */
+            padding: 20px;
+            width: 80%;
+            margin: 0 auto;
+            border: 1px solid #e1e1e1;
+            border-radius: 10px;
+        }
+
+        p {
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ff5733; /* Reddish-Orange color */
+        }
+
+        .dashboard-button {
+            background-color: #ff5733; /* Reddish-Orange color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+</head>
+<body>
+    <h1>Manager Dashboard</h1>
+    <div class="dashboard-container">
+        <h2>Welcome, Manager!</h2>
+        <p>Manage student residence applications:</p>
+        
+        <h3>View Students</h3>
+        <p>Click the button below to view the list of student residence applications:</p>
+        <a href="ViewStudents.php"><button class="dashboard-button">View Students</button></a>
+        
+        <h3>Accept Students</h3>
+        <p>Click the button below to accept or allocate rooms to students:</p>
+        <a href="AllocateStudent.php"><button class="dashboard-button">Accept Students</button></a>
+
+        <a href="logout.php"><button class="dashboard-button">Logout</button></a>
+    </div>
+</body>
+</html>

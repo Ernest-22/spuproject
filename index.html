@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website with Login and Registration</title>
+  <link rel="stylesheet" href="https://unpkg.com/ionicons@5.4.0/dist/ionicons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h2 class="logo"></h2>
+    <nav class="navigation">
+      <a href="About.html">About</a>
+      <a href="Services.html">Service</a>
+      <a href="contacts.html">Contact</a>
+      <button class="btnLogin-popup">Login</button>
+    </nav>
+  </header>
+  <div class="wrapper">
+    <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+    <div class="form-box login">
+      <h2>Login</h2>
+      <form method="post" action="login.php">
+        <div class="input-box">
+          <span class="icon"><ion-icon name="mail"></ion-icon></span>
+          <input type="text" name="username" required>
+          <label>Username</label>
+        </div>
+        
+        <div class="input-box">
+          <input type="password" required id="password" name="password">
+          <label>Password</label>
+        </div>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="person"></ion-icon></span>
+          <label for="user-type"></label>
+          <div class="user-type-options">
+            <button class="user-type-option" type="button" data-value="student">Student</button>
+            <button class="user-type-option" type="button" data-value="staff">Staff</button>
+          </div>
+          <input type="hidden" id="user-type" name="user_type" required>
+        </div>
+        
+        
+      
+        <div class="remember-forgot">
+          <label><input type="checkbox">Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <div class="login-register">
+          <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+        </div>
+      </form>
+    </div>
+    
+    <div class="form-box register">
+      <h2>Registration</h2>
+      <form action="registration.php" method="POST">
+        <div class="input-box">
+          <span class="icon"><ion-icon name="person"></ion-icon></span>
+          <input type="text" name="username" required>
+          <label>Username</label>
+        </div>
+
+        <div class="input-box">
+          <span class="icon"><ion-icon name="mail"></ion-icon></span>
+          <input type="email" name="email" required>
+          <label>Email</label>
+        </div>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+          <input type="password" name="password" required>
+          <label>Password</label>
+        </div>
+        
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+          <input type="password" name="confirmPassword" required>
+          <label>Confirm Password</label>
+        </div>
+        
+        <div class="remember-forgot">
+          <label><input type="checkbox">I agree to the terms & conditions</label>
+        </div>
+        <button type="submit" class="btn" name="submit">Register</button>
+        <div class="login-register">
+          <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+        </div>
+      </form>
+    </div>
+    <script>
+      const wrapper = document.querySelector('.wrapper');
+      const loginLink = document.querySelector('.login-link');
+      const registerLink = document.querySelector('.register-link');
+      const btnPopup = document.querySelector('.btnLogin-popup');
+      const iconClose = document.querySelector('.icon-close');
+      const userTypeOptions = document.querySelectorAll('.user-type-option');
+      const userTypeInput = document.getElementById('user-type');
+    
+      registerLink.addEventListener('click', () => {
+        wrapper.classList.add('active');
+      });
+    
+      loginLink.addEventListener('click', () => {
+        wrapper.classList.remove('active');
+      });
+    
+      btnPopup.addEventListener('click', () => {
+        wrapper.classList.add('active-popup');
+      });
+    
+      iconClose.addEventListener('click', () => {
+        wrapper.classList.remove('active-popup');
+      });
+    
+      userTypeOptions.forEach(option => {
+  option.addEventListener('click', () => {
+    userTypeOptions.forEach(opt => opt.classList.remove('active')); // Remove active class from all options
+    option.classList.add('active'); // Add active class to the clicked option
+    const userType = option.getAttribute('data-value');
+    userTypeInput.value = userType;
+        });
+      });
+    </script>
+    
+</body>
+</html>

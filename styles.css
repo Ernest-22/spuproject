@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=poppins');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+ 
+  background-size: cover;
+  background-position: center;
+}
+/* ... Existing CSS ... */
+
+.sidebar {
+  height: 100%;
+  width: 350px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111; /* Dark background color for the sidebar */
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 20px;
+}
+
+.sidebar .logo img {
+  height: 50px;
+  width: auto;
+  margin: 10px;
+}
+
+.sidebar nav a {
+  padding: 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar nav a:hover {
+  color: #ff7f50; /* Change color on hover */
+}
+
+.content {
+  margin-left: 250px; /* Adjusted margin to accommodate the sidebar */
+}
+
+/* ... Existing CSS ... */
+
+/* ... Remaining Existing CSS ... */
+
+/* ... Remaining Existing CSS ... */
+
+
+header {
+  
+  width: 100%;
+  padding: 20px 100px;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  position: center;;
+}
+
+.logo img {
+  height: 50px;
+  width: 50px;
+}
+
+.btnLogout-popup {
+  margin-left: auto;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+.container {
+  display: flex;
+  position: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  flex: 1;
+}
+
+.student-details {
+  padding: 20px;
+  backdrop-filter: blur(80PX);
+  margin-bottom: 20px;
+  border: 2px solid #3498db;
+  width: 300px;
+  border-radius: 10px;
+}
+
+/* ... Existing CSS ... */
+
+.application-status {
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 2px solid #27ae60;
+  width: 300px;
+  backdrop-filter: blur(80px);
+  border-radius: 10px;
+  transition: all 2s ease-in-out; /* Added transition */
+}
+
+.application-status.hidden {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.application-status h3 {
+  margin-bottom: 10px;
+}
+
+.application-status table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.application-status th, .application-status td {
+  padding: 10px;
+  text-align: left;
+}
+
+.application-status th {
+  font-weight: bold;
+}
+
+.application-status span {
+  font-weight: bold;
+}
+
+.application-status button {
+  padding: 10px 20px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 0.2cm;
+  cursor: pointer;
+  animation: pulse 1s infinite;
+}
+
+.application-status button:hover {
+  animation: none;
+  background-color: #219d54;
+}
+
+/* ... Remaining Existing CSS ... */
+
+
+
+.start-res-application {
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 2px solid #e67e22;
+  width: 300px;
+  border-radius: 10px;
+  backdrop-filter: blur(80PX);
+}
+
+
+h2 {
+  margin-bottom: 10px;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 0.2cm;
+  cursor: pointer;
+  animation: pulse 1s infinite;
+}
+
+button:hover {
+  animation: none;
+  background-color: #2980b9;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.student-details, .application-status, .start-res-application {
+  animation: fadeIn 1s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.application-status {
+  animation: float 2s infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+.start-res-application {
+  animation: shake 20s ;
+}
+
+
+
+
+
