@@ -6,7 +6,6 @@ This is a web-based **Student Residence Application System** developed for unive
 
 - 📝 **Student Registration & Login**
 - 🏠 **Online Residence Application Form**
-- 📄 **Upload Required Supporting Documents**
 - ✅ **Application Status Tracking**
 - 📬 **Email Notifications for Application Updates**
 - 🔒 **Secure Authentication & Authorization**
@@ -15,10 +14,7 @@ This is a web-based **Student Residence Application System** developed for unive
 
 - **Frontend**: HTML5, CSS3, JavaScript
 - **Backend**: PHP
-- **Database**: MySQL
-
-
-## 📷 Screenshots
+- **Database**: MySQL,PHPMYADMIN
 
 
 
